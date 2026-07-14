@@ -774,14 +774,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     let activeMilestone = -1;
-    let isPaused = false;
-    let pauseTimeout = null;
     
     function draw() {
       const carY = height * 0.75;
-      if (!isPaused) {
-        distance += (targetDistance - distance) * 0.1;
-      }
+      distance += (targetDistance - distance) * 0.15;
       
       const timeOfDay = Math.min(1, distance / totalDistance);
       
@@ -819,7 +815,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const mDist = (idx + 1) * milestoneSpacing;
         const mX = (width * 0.5) + (mDist - distance);
         
-        if (mX > carX - 100 && mX < carX + 100) {
+        if (mX > carX - 400 && mX < carX + 400) {
           newActive = idx;
         }
         
@@ -850,19 +846,13 @@ document.addEventListener('DOMContentLoaded', () => {
           popup.classList.remove('hidden');
           popup.classList.add('visible');
           counter.textContent = `${activeMilestone + 1} / ${milestones.length}`;
-          
-          isPaused = true;
-          clearTimeout(pauseTimeout);
-          pauseTimeout = setTimeout(() => {
-            isPaused = false;
-          }, 1400);
         } else {
           popup.classList.remove('visible');
           popup.classList.add('hidden');
         }
       }
       
-      const speed = isPaused ? 0 : Math.abs(targetDistance - distance);
+      const speed = Math.abs(targetDistance - distance);
       const bounce = Math.sin(Date.now() / 100) * Math.min(2, speed * 0.1);
       const cy = carY + bounce;
       
