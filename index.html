@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Harsh Vikram Singh — Developer Portfolio</title>
+  <meta name="description" content="Harsh Vikram Singh — B.Tech CSE student at VIT Chennai. Full-Stack Development, AI/ML, and Blockchain.">
+  <meta name="keywords" content="developer, portfolio, full-stack, machine learning, blockchain, typescript, python, AI, VIT Chennai">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+
+  <!-- Custom Cursor -->
+  <div class="cursor-ring" id="cursor-ring"><span class="cursor-label" id="cursor-label"></span></div>
+  <div class="cursor-dot" id="cursor-dot"></div>
+  <div id="cursor-trails-container"></div>
+
+  <!-- Floating Project Preview -->
+  <div class="project-preview-container" id="project-preview-container">
+    <div class="project-preview-inner">
+      <img id="project-preview-img" src="" alt="Project Preview" />
+    </div>
+  </div>
+
+  <!-- Side Progress Line -->
+  <div class="side-line" id="side-line">
+    <div class="side-line-progress" id="side-progress"></div>
+  </div>
+  <div class="side-line-dot" id="side-dot"></div>
+  <div class="side-line-markers" id="side-markers"></div>
+
+  <!-- ═══════════ LOADING SCREEN (TV Test Pattern) ═══════════ -->
+  <div class="tv-loading" id="tv-loading">
+    <div class="tv-frame">
+      <div class="tv-screen">
+        <div class="tv-scanlines"></div>
+        <div class="tv-noise"></div>
+        <div class="tv-bars">
+          <div class="tv-bar"></div><div class="tv-bar"></div><div class="tv-bar"></div>
+          <div class="tv-bar"></div><div class="tv-bar"></div><div class="tv-bar"></div><div class="tv-bar"></div>
+        </div>
+        <div class="tv-bottom">
+          <div class="tv-bottom-bar"></div><div class="tv-bottom-bar"></div><div class="tv-bottom-bar"></div>
+          <div class="tv-bottom-bar"></div><div class="tv-bottom-bar"></div><div class="tv-bottom-bar"></div><div class="tv-bottom-bar"></div>
+        </div>
+        <div class="tv-black-section">
+          <div class="tv-loading-bar">
+            <div class="tv-loading-block" id="block-1"></div><div class="tv-loading-block" id="block-2"></div>
+            <div class="tv-loading-block" id="block-3"></div><div class="tv-loading-block" id="block-4"></div>
+            <div class="tv-loading-block" id="block-5"></div><div class="tv-loading-block" id="block-6"></div>
+          </div>
+        </div>
+        <div class="tv-center-overlay">
+          <div class="tv-text">STREAM<br>STARTING<br>SOON</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ MAIN CONTENT ═══════════ -->
+  <div class="main-content" id="main-content">
+
+    <!-- ── Navigation ── -->
+    <nav class="navbar" id="navbar">
+      <div class="nav-container">
+        <a href="#hero" class="nav-logo">
+          <span class="logo-bracket">[</span>
+          <span class="logo-name">harsh</span>
+          <span class="logo-dot">.dev</span>
+          <span class="logo-bracket">]</span>
+        </a>
+        <div class="nav-links" id="nav-links">
+          <a href="#about" class="nav-link-item">About</a>
+          <a href="#projects" class="nav-link-item">Projects</a>
+          <a href="#journey" class="nav-link-item">Journey</a>
+          <a href="#contact" class="nav-link-item">Contact</a>
+          <a href="Harsh Vikram Singh – Resumee.pdf" class="nav-resume-btn" target="_blank" rel="noopener">RESUME_</a>
+        </div>
+        <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- ═══════════ HERO SECTION ═══════════ -->
+    <section class="section hero section-marker" id="hero" data-color="#00ff88">
+      <div class="hero-grid"></div>
+      <div class="hero-glow"></div>
+
+      <!-- Fluid Abstract Background -->
+      <div class="hero-abstract-bg">
+        <svg viewBox="0 0 1400 800" preserveAspectRatio="xMidYMid slice">
+          <defs>
+            <radialGradient id="glow1" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="rgba(200, 140, 220, 0.5)" />
+              <stop offset="100%" stop-color="rgba(200, 140, 220, 0)" />
+            </radialGradient>
+            <radialGradient id="glow2" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="rgba(220, 120, 130, 0.4)" />
+              <stop offset="100%" stop-color="rgba(220, 120, 130, 0)" />
+            </radialGradient>
+            <radialGradient id="glow3" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="rgba(240, 190, 100, 0.3)" />
+              <stop offset="100%" stop-color="rgba(240, 190, 100, 0)" />
+            </radialGradient>
+          </defs>
+          <path d="M0,400 Q100,200 300,350 T600,250 T900,400 T1200,300 L1400,800 L0,800 Z" fill="rgba(190, 150, 210, 0.3)" />
+          <path d="M0,500 Q200,300 400,450 T700,350 T1000,500 T1400,350 L1400,800 L0,800 Z" fill="rgba(210, 130, 150, 0.25)" />
+          <path d="M1400,200 Q1200,350 1000,250 T600,400 T200,300 L0,800 L1400,800 Z" fill="rgba(180, 160, 220, 0.2)" />
+          <ellipse cx="350" cy="350" rx="300" ry="250" fill="url(#glow1)" />
+          <ellipse cx="1050" cy="400" rx="350" ry="280" fill="url(#glow2)" />
+          <ellipse cx="700" cy="250" rx="200" ry="200" fill="url(#glow3)" />
+          <path d="M200,150 Q250,80 350,130 Q400,180 370,250 Q300,230 250,200 Q210,180 200,150 Z" fill="rgba(255, 180, 120, 0.2)" />
+          <path d="M1100,120 Q1150,60 1250,100 Q1280,170 1220,220 Q1150,200 1110,170 Q1090,150 1100,120 Z" fill="rgba(160, 200, 240, 0.2)" />
+          <path d="M600,650 Q650,600 750,640 Q780,700 720,740 Q650,720 610,690 Q590,670 600,650 Z" fill="rgba(200, 160, 230, 0.15)" />
+        </svg>
+      </div>
+
+      <!-- Left animated text -->
+      <div class="hero-side-text left-side">
+        <span class="side-arrow">↑</span>
+        <span class="side-label">PROJECTS</span>
+      </div>
+
+      <!-- Right animated text -->
+      <div class="hero-side-text right-side">
+        <span class="side-label">JOURNEY</span>
+        <span class="side-arrow">↑</span>
+      </div>
+
+      <!-- Massive Background Numbers -->
+      <div class="huge-bg-number" id="bg-number-1">01</div>
+      <div class="huge-bg-number" id="bg-number-2">02</div>
+
+      <!-- Center Face and Name -->
+      <div class="hero-center-content" id="hero-center-content">
+        <div class="hero-face-container reveal-scale" id="hero-face-container">
+
+          <!-- Hidden canvas for ASCII pixel sampling -->
+          <canvas id="ascii-canvas" style="display:none"></canvas>
+
+          <!-- ASCII Art Overlay (rendered by JS) -->
+          <div class="ascii-face-overlay" id="ascii-face-overlay"></div>
+
+          <!-- Base B&W Face (hidden initially, revealed after ASCII) -->
+          <img src="vikram-face.jpg" class="hero-face bw-face ascii-hidden" id="bw-face" alt="Harsh Vikram Singh" />
+
+          <!-- The Split Color Overlay with CSS Mask -->
+          <div class="hero-face-color-wrapper ascii-hidden" id="hero-face-mask">
+            <div class="color-layer-bg"></div>
+            <img src="vikram-face.jpg" class="hero-face color-face" alt="Harsh Vikram Singh" />
+          </div>
+        </div>
+
+        <h1 class="hero-huge-name reveal-delay-1" id="hero-name-parallax">HARSH</h1>
+
+        <div class="hero-dynamic reveal-delay-2">
+          I build <span class="typed-text" id="typed-text"></span><span class="type-cursor">|</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════ ABOUT SECTION ═══════════ -->
+    <section class="section about section-marker" id="about" data-color="#ff00aa">
+      <div class="container">
+        <div class="about-grid">
+          <div>
+            <div class="section-label reveal-left">01 — About</div>
+            <h2 class="section-title reveal-left reveal-delay-1">Crafting digital<br>experiences.</h2>
+            <div class="about-text reveal-left reveal-delay-2">
+              <p>
+                I'm Harsh Vikram Singh — a B.Tech Computer Science student at
+                VIT Chennai (7th Semester, CGPA 8.65/10) passionate about building
+                solutions that bridge cutting-edge technology and real-world problems.
+                From ML models that detect financial fraud to decentralized NFT
+                platforms and AI-powered code intelligence — I love pushing boundaries.
+              </p>
+              <p>
+                When I'm not coding, you'll find me competing on CodeChef (2-Star),
+                grinding LeetCode (350+ problems), leading teams as Head of Finance
+                at Sangam Cultural Club, or building rapid prototypes at hackathons.
+              </p>
+            </div>
+
+            <!-- Paperclip Note -->
+            <div class="paperclip-note reveal-scale reveal-delay-3">
+              <svg class="paperclip-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m21.44 11.05-9.19 9.19a6 6 0 0 1-8.49-8.49l8.57-8.57A4 4 0 1 1 18 8.84l-8.59 8.57a2 2 0 0 1-2.83-2.83l8.49-8.48"/>
+              </svg>
+              <div class="note-title">📌 Personal Note</div>
+              <div class="note-content">
+                "I believe the best code is written when you truly understand the problem
+                you're solving — not just the technology you're using. Every project I
+                take on starts with 'why' before 'how'."
+              </div>
+            </div>
+          </div>
+
+          <!-- Beliefs Collage -->
+          <div class="beliefs-collage" id="collage-section">
+            <div class="doodle cat-doodle" data-speed="1.5" data-split-x="-180" data-split-y="-120">
+              <svg viewBox="0 0 100 120" stroke="var(--bg-card)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 50 Q10 10 30 20 Q50 15 70 20 Q90 10 80 50 Q90 80 70 100 Q50 110 30 100 Q10 80 20 50 Z" fill="var(--text-primary)"/>
+                <path d="M20 50 L10 20 L35 30" stroke="var(--bg-card)"/>
+                <path d="M80 50 L90 20 L65 30" stroke="var(--bg-card)"/>
+                <circle cx="35" cy="55" r="4" fill="var(--bg-card)"/>
+                <circle cx="65" cy="55" r="4" fill="var(--bg-card)"/>
+                <path d="M50 65 L45 70 M50 65 L55 70" stroke="var(--bg-card)"/>
+                <path d="M10 60 L25 62 M8 68 L24 67" stroke="var(--bg-card)"/>
+                <path d="M90 60 L75 62 M92 68 L76 67" stroke="var(--bg-card)"/>
+              </svg>
+            </div>
+            <div class="doodle diamond-doodle" data-speed="-1" data-split-x="120" data-split-y="-150">
+              <svg viewBox="0 0 60 60" stroke="var(--text-muted)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="30,5 55,20 30,55 5,20" />
+                <line x1="15" y1="12" x2="45" y2="12" />
+                <line x1="30" y1="5" x2="30" y2="55" />
+                <line x1="5" y1="20" x2="55" y2="20" />
+              </svg>
+            </div>
+            <div class="doodle bird-doodle" data-speed="1.2" data-split-x="80" data-split-y="180">
+              <svg viewBox="0 0 80 100" stroke="var(--text-secondary)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M40 20 Q60 20 60 40 Q60 60 40 80 Q20 60 20 40 Q20 20 40 20 Z" />
+                <path d="M60 35 L75 40 L60 45" />
+                <circle cx="45" cy="35" r="2" fill="var(--text-secondary)" />
+                <path d="M30 45 Q40 55 25 70" />
+                <line x1="35" y1="80" x2="30" y2="95" />
+                <line x1="45" y1="80" x2="50" y2="95" />
+              </svg>
+            </div>
+            <div class="paper-scrap lined-paper scrap-1" data-speed="0.8" data-split-x="-220" data-split-y="100">
+               <div class="scrap-text handwriting-font">tirelessly<br>pursue<br>clarity.</div>
+            </div>
+            <div class="paper-scrap grid-paper scrap-2" data-speed="-0.5" data-split-x="250" data-split-y="-60">
+               <div class="scrap-text typewriter-font">Software<br>should<br>empower.</div>
+            </div>
+            <div class="paper-scrap beige-paper scrap-3" data-speed="1.4" data-split-x="0" data-split-y="220">
+               <svg class="paperclip-overlay" viewBox="0 0 24 24" fill="none" stroke="#666" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                 <path d="m21.44 11.05-9.19 9.19a6 6 0 0 1-8.49-8.49l8.57-8.57A4 4 0 1 1 18 8.84l-8.59 8.57a2 2 0 0 1-2.83-2.83l8.49-8.48"/>
+               </svg>
+               <div class="scrap-text serif-italic">Design for<br>moments</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════ PROJECTS SECTION ═══════════ -->
+    <section class="section section-marker" id="projects" data-color="#00cfff">
+      <div class="container">
+        <div class="section-label reveal">02 — Projects</div>
+        <h2 class="section-title reveal reveal-delay-1" style="margin-bottom: 48px;">Selected work.</h2>
+
+        <div class="projects-list">
+          <a href="https://codski.qzz.io" target="_blank" rel="noopener" class="project-row reveal" data-preview="preview-codeflow.png">
+            <div class="project-name">CodeFlow</div>
+            <div class="project-category">Full-Stack Platform</div>
+            <div class="project-tech">
+              <span class="project-tech-tag">TypeScript</span>
+              <span class="project-tech-tag">React</span>
+              <span class="project-tech-tag">Node.js</span>
+              <span class="project-tech-tag">RAG</span>
+              <span class="project-tech-tag">ChromaDB</span>
+            </div>
+            <div class="project-year">2026
+              <svg class="project-arrow" viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            </div>
+          </a>
+
+          <a href="https://github.com/vikramhls/fiancial-fraud-insight" target="_blank" rel="noopener" class="project-row reveal reveal-delay-1" data-preview="preview-fraud.png">
+            <div class="project-name">FinProtect AI</div>
+            <div class="project-category">AI / Machine Learning</div>
+            <div class="project-tech">
+              <span class="project-tech-tag">FastAPI</span>
+              <span class="project-tech-tag">XGBoost</span>
+              <span class="project-tech-tag">Gemini</span>
+              <span class="project-tech-tag">React</span>
+            </div>
+            <div class="project-year">2026
+              <svg class="project-arrow" viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            </div>
+          </a>
+
+          <a href="https://cyber-secure-vault-tdbu.vercel.app" target="_blank" rel="noopener" class="project-row reveal reveal-delay-2">
+            <div class="project-name">Cyber Secure Vault</div>
+            <div class="project-category">Security / Full-Stack</div>
+            <div class="project-tech">
+              <span class="project-tech-tag">Node.js</span>
+              <span class="project-tech-tag">Express</span>
+              <span class="project-tech-tag">React</span>
+              <span class="project-tech-tag">AES-256</span>
+            </div>
+            <div class="project-year">2026
+              <svg class="project-arrow" viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            </div>
+          </a>
+
+          <a href="https://github.com/vikramhls/NFT_rental" target="_blank" rel="noopener" class="project-row reveal reveal-delay-3" data-preview="preview-nft.png">
+            <div class="project-name">NFT Rental Platform</div>
+            <div class="project-category">Blockchain / Web3</div>
+            <div class="project-tech">
+              <span class="project-tech-tag">TypeScript</span>
+              <span class="project-tech-tag">Solidity</span>
+              <span class="project-tech-tag">Ethereum</span>
+            </div>
+            <div class="project-year">2025
+              <svg class="project-arrow" viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            </div>
+          </a>
+
+          <a href="https://github.com/vikramhls/doctor-lingual-helper" target="_blank" rel="noopener" class="project-row reveal reveal-delay-4">
+            <div class="project-name">Doctor Multilingual Assistant</div>
+            <div class="project-category">Real-Time Communication</div>
+            <div class="project-tech">
+              <span class="project-tech-tag">Socket.IO</span>
+              <span class="project-tech-tag">Vosk</span>
+              <span class="project-tech-tag">ElevenLabs</span>
+              <span class="project-tech-tag">Node.js</span>
+            </div>
+            <div class="project-year">2025
+              <svg class="project-arrow" viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════ JOURNEY / CAR GAME ═══════════ -->
+    <section class="section journey-section section-marker" id="journey" data-color="#ffe600">
+      <div class="container car-game-header">
+        <div class="section-label reveal">03 — Journey</div>
+        <h2 class="section-title reveal reveal-delay-1">Drive through my story.</h2>
+        <p class="journey-subtitle reveal reveal-delay-2">Scroll to drive the car — each sign marks a chapter of my life</p>
+      </div>
+      <div class="car-game-scroll-container" id="car-game-scroll-container">
+        <div class="car-game-sticky" id="car-game-sticky">
+          <canvas id="car-game-canvas"></canvas>
+          <div class="car-game-overlay">
+            <div class="game-hint" id="game-hint">🚗 SCROLL to drive</div>
+            <div class="milestone-counter" id="milestone-counter">0 / 12</div>
+          </div>
+          <div class="milestone-popup hidden" id="milestone-popup">
+            <div class="milestone-popup-inner">
+              <div class="milestone-popup-year" id="popup-year"></div>
+              <div class="milestone-popup-title" id="popup-title"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════ MARQUEE ═══════════ -->
+    <section class="marquee-section section-marker" data-color="#ff8c00">
+      <div class="marquee-track">
+        <span class="marquee-item">VIT Chennai 🏛️</span>
+        <span class="marquee-item">CodeChef 2-Star ⭐</span>
+        <span class="marquee-item">LeetCode 350+ 💡</span>
+        <span class="marquee-item">Full-Stack Dev 🚀</span>
+        <span class="marquee-item">AI/ML Explorer 🤖</span>
+        <span class="marquee-item">Blockchain Builder 🔗</span>
+        <span class="marquee-item">Hackathon Warrior ⚡</span>
+        <span class="marquee-item">TypeScript Fan</span>
+        <span class="marquee-item">Night Owl 🦉</span>
+        <span class="marquee-item">Always Learning 📚</span>
+        <!-- Duplicate -->
+        <span class="marquee-item">VIT Chennai 🏛️</span>
+        <span class="marquee-item">CodeChef 2-Star ⭐</span>
+        <span class="marquee-item">LeetCode 350+ 💡</span>
+        <span class="marquee-item">Full-Stack Dev 🚀</span>
+        <span class="marquee-item">AI/ML Explorer 🤖</span>
+        <span class="marquee-item">Blockchain Builder 🔗</span>
+        <span class="marquee-item">Hackathon Warrior ⚡</span>
+        <span class="marquee-item">TypeScript Fan</span>
+        <span class="marquee-item">Night Owl 🦉</span>
+        <span class="marquee-item">Always Learning 📚</span>
+      </div>
+    </section>
+
+    <!-- ═══════════ CONTACT CTA ═══════════ -->
+    <section class="section contact section-marker" id="contact" data-color="#ff0040">
+      <div class="container">
+        <div class="contact-content">
+          <div class="section-label reveal" style="justify-content: center;">04 — Contact</div>
+          <h2 class="contact-title reveal reveal-delay-1">Let's build<br>something <span class="accent">great</span>.</h2>
+          <p class="contact-subtitle reveal reveal-delay-2">
+            I'm currently open to internships, freelance projects, and full-time opportunities.
+            Let's build something great together.
+          </p>
+          <div class="contact-links reveal reveal-delay-3">
+            <a href="mailto:harshvikramhls@gmail.com" class="contact-link email-link">
+              <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              Email Me
+            </a>
+            <a href="https://github.com/vikramhls" target="_blank" rel="noopener" class="contact-link">
+              <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+              GitHub
+            </a>
+            <a href="https://linkedin.com/in/harsh-vikram-singh" target="_blank" rel="noopener" class="contact-link">
+              <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+              LinkedIn
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Footer ── -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-text">
+            Designed & Built by <span class="accent">Harsh Vikram Singh</span> — 2026
+          </div>
+          <div class="footer-right">
+            Made with ♥ & lots of ☕
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  </div><!-- /main-content -->
+
+  <script src="script.js"></script>
+</body>
+</html>
